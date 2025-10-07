@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+apps/frontend/node_modules/
+apps/backend/node_modules/
+
+# Vite build
+apps/frontend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env files
+.env
+apps/backend/.env
+apps/frontend/.env
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
