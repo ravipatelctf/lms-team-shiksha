@@ -1,3 +1,4 @@
+const { initializeDatabase } = require("./db/db.connection");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -5,7 +6,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/api", (req, res) => {
+const {router: authRoutes, verifyJwt} = require("./routes/auth.routes");
+
+initializeDatabase();
+
+// Auth routes
+app.use("/auth", authRoutes);
+
+app.get("/", (req, res) => {
   res.json({ message: "Welcome to the LMS backend API!" });
 });
 

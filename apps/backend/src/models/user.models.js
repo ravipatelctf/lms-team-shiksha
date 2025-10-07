@@ -16,18 +16,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    role: {
-        type: String,
-        enum: ["admin", "user"],
-        default: "user",
-    }
 },
 {
     timestamps: true,
 },
 );
 
-userSchema.methods.comparePassword = async (password) => {
+userSchema.methods.comparePassword = async function(password) {
     return bcrypt.compare(password, this.password);
 }
 
