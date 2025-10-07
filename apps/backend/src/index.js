@@ -1,14 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
+app.use(cors());
 app.use(express.json());
-const PORT = process.env.PORT || 3000;
 
-// Home route
 app.get("/api", (req, res) => {
-    res.status(200).json({"message": "Welcome to the home page of lms-team-shiksha backend"})
-})
+  res.json({ message: "Welcome to the LMS backend API!" });
+});
 
-// Initialize server
-app.listen(PORT, () => {
-    console.log(`Server is running on PORT ${PORT}`)
-})
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
